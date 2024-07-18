@@ -2,11 +2,12 @@
 
 use Adianti\Database\TRecord;
 
-class Post extends TRecord
+class Article extends TRecord
 {
-  const TABLENAME = 'customer';
+  const TABLENAME = 'article';
   const PRIMARYKEY = 'id';
-  const IDPOLICY = 'max'; // {max, serial}
+  const IDPOLICY =  'max'; // {max, serial}
+
   public function __construct($id = NULL)
   {
     parent::__construct($id);
