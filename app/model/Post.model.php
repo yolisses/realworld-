@@ -1,0 +1,24 @@
+<?php
+
+use Adianti\Database\TRecord;
+
+class Post extends TRecord
+{
+  const TABLENAME = 'customer';
+  const PRIMARYKEY = 'id';
+  const IDPOLICY = 'max'; // {max, serial}
+  public function __construct($id = NULL)
+  {
+    parent::__construct($id);
+
+    parent::addAttribute('slug');
+    parent::addAttribute('title');
+    parent::addAttribute('description');
+    parent::addAttribute('body');
+    parent::addAttribute('tagList');
+    parent::addAttribute('createdAt');
+    parent::addAttribute('updatedAt');
+    parent::addAttribute('favorited');
+    parent::addAttribute('favoritesCount');
+  }
+}
