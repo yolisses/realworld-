@@ -12,4 +12,9 @@ class UserButtons extends TPage
 
     $this->add(new TLabel('hello'));
   }
+
+
+  function onShow()
+  {
+  }
 }

@@ -1,6 +1,8 @@
 <?php
 
 use Adianti\Control\TPage;
+use Adianti\Core\AdiantiCoreApplication;
+use Adianti\Widget\Form\TLabel;
 
 class DevPage extends TPage
 {
@@ -8,6 +10,8 @@ class DevPage extends TPage
   {
     parent::__construct();
 
-    $this->add(new UserButtons);
+    $this->add(new TLabel('massa'));
+
+    AdiantiCoreApplication::loadPage('UserButtons');
   }
 }
