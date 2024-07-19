@@ -1,8 +1,6 @@
 <?php
 
 use Adianti\Control\TAction;
-use Adianti\Core\AdiantiCoreApplication;
-use Adianti\Database\TTransaction;
 use Adianti\Widget\Container\THBox;
 use Adianti\Widget\Form\TButton;
 use Adianti\Widget\Form\TForm;
@@ -14,44 +12,33 @@ class ArticleOptions extends THBox
   {
     parent::__construct();
 
-    $deleteForm = new TForm('delete_form');
+    $deleteForm = new TForm();
     $this->add($deleteForm);
 
     $deleteButton = new TButton("delete");
     $deleteForm->add($deleteButton);
     $deleteForm->addField($deleteButton);
-    $deleteButton->setAction(new TAction([$this, 'onDelete'], ['id' => $articleId]));
-    $deleteButton->setImage('fa:trash red');
+
+    $deleteButton->setAction(new TAction(['DeleteArticle', 'onDelete'], ['id' => $articleId]));
+
     $deleteButton->class = 'btn';
     $deleteButton->type = 'submit';
+    $deleteButton->setImage('fa:trash red');
     $deleteButton->setLabel("Delete Article");
 
-    $editForm = new TForm('edit_form');
+    $editForm = new TForm();
     $this->add($editForm);
 
     $editButton = new TButton("edit");
     $editForm->add($editButton);
     $editForm->addField($editButton);
-    $editButton->setAction(new TAction([$this, 'onEdit'], ['id' => $articleId]));
-    $editButton->setImage('fa:edit blue');
+
+    $editAction = new TAction(array('EditArticleView', 'onLoad'));
+    $editAction->setParameter('id', $articleId);
+    $editButton->setAction($editAction);
+
     $editButton->class = 'btn';
-    $editButton->type = 'submit';
     $editButton->setLabel("Edit Article");
-  }
-
-
-  function onDelete($params)
-  {
-    TTransaction::open('sample');
-    $article = new Article();
-    $article->delete($params['id']);
-    TTransaction::close();
-
-    AdiantiCoreApplication::loadPageURL('index.php?class=ArticlesView');
-  }
-
-  function onEdit($params)
-  {
-    AdiantiCoreApplication::loadPageURL('index.php?class=EditArticleView&id=' . $params['id']);
+    $editButton->setImage('fa:edit blue');
   }
 }
