@@ -11,7 +11,6 @@ class DevPage extends TPage
   {
     parent::__construct();
 
-
     $username = TSession::getValue('username');
     $this->add(new TLabel('username:' . $username));
 
