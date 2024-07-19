@@ -2,6 +2,7 @@
 
 use Adianti\Control\TPage;
 use Adianti\Core\AdiantiCoreApplication;
+use Adianti\Registry\TSession;
 use Adianti\Widget\Form\TLabel;
 
 class DevPage extends TPage
@@ -10,9 +11,12 @@ class DevPage extends TPage
   {
     parent::__construct();
 
-    $this->add(new TLabel('massa'));
 
+    $username = TSession::getValue('username');
+    $this->add(new TLabel('username:' . $username));
 
+    $logged = TSession::getValue('logged');
+    $this->add(new TLabel('logged:' . $logged));
 
     AdiantiCoreApplication::loadPageURL('index.php?class=UserButtons');
   }

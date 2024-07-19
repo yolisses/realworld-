@@ -50,8 +50,8 @@ class SignInView extends TPage
         if (password_verify($password, $user->passwordHash)) {
           TSession::setValue('logged', true);
           TSession::setValue('email', $user->email);
-          TSession::setValue('role', $user->role);
-          AdiantiCoreApplication::gotoPage('ArticlesView');
+          TSession::setValue('username', $user->username);
+          AdiantiCoreApplication::gotoPage('DevPage');
         } else {
           throw new Exception('Invalid password');
         }
