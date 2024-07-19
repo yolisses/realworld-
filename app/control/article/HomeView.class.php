@@ -29,12 +29,20 @@ class HomeView extends TPage
       $card->class = "card col-sm-12 mt-2";
       $link->add($card);
 
+      $header =  new TVBox;
+      $header->class = 'card-header';
+      $card->add($header);
+
       $title = new TLabel($article->title);
-      $title->class = "card-header";
-      $card->add($title);
+      $title->class = "card-title";
+      $header->add($title);
+
+      $body = new TVBox();
+      $body->class = 'card-body';
+      $card->add($body);
 
       $description = new TLabel($article->description);
-      $card->add($description);
+      $body->add($description);
     }
   }
 }
