@@ -17,22 +17,24 @@ class HomeView extends TPage
     TTransaction::close();
 
     $list = new TVBox;
+    $list->class = "col";
     $this->add($list);
 
     foreach ($articles as $article) {
-      $container = new TVBox;
-
-      $title = new TLabel($article->title);
-      $container->add($title);
-
-      $description = new TLabel($article->description);
-      $container->add($description);
-
       $link = new TElement('a');
       $link->href = 'index.php?class=ArticleView&method=onLoad&id=' . $article->id;
-      $link->add($container);
-
       $list->add($link);
+
+      $card = new TVBox;
+      $card->class = "card col-sm-12 mt-2";
+      $link->add($card);
+
+      $title = new TLabel($article->title);
+      $title->class = "card-header";
+      $card->add($title);
+
+      $description = new TLabel($article->description);
+      $card->add($description);
     }
   }
 }
