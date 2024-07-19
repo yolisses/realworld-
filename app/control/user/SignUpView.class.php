@@ -29,7 +29,7 @@ class SignUpView extends TPage
     $form->addFields([new TLabel("Email")], [$email]);
     $form->addFields([new TLabel("Password")], [$password]);
 
-    $form->addAction("Sign up", new TAction(array($this, 'onSend')));
+    $form->addAction("Sign up", new TAction(array($this, 'onSend')), "");
   }
 
   public function onSend()
