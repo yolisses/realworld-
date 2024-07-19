@@ -6,7 +6,6 @@ class Article extends TRecord
 {
   const TABLENAME = 'article';
   const PRIMARYKEY = 'id';
-  const IDPOLICY =  'max'; // {max, serial}
 
   public function __construct($id = NULL)
   {
