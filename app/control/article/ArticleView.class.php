@@ -2,6 +2,7 @@
 
 use Adianti\Control\TPage;
 use Adianti\Database\TTransaction;
+use Adianti\Widget\Base\TElement;
 use Adianti\Widget\Container\TVBox;
 use Adianti\Widget\Form\TLabel;
 
@@ -24,8 +25,13 @@ class ArticleView extends TPage
     $title = new TLabel($article->title);
     $container->add($title);
 
-    $body = new TLabel($article->body);
-    $container->add($body);
+    $paragraphs = explode("\n", $article->body);
+
+    foreach ($paragraphs as $paragraphText) {
+      $paragraph = new TLabel($paragraphText);
+      $container->add($paragraph);
+    }
+
 
     TTransaction::close();
   }
