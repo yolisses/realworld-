@@ -27,8 +27,8 @@ class CreateArticleView extends TPage
     $this->form->setFormTitle("New post");
 
     $title = new TEntry('title');
-    $description = new TText('description');
-    $body = new TEntry('body');
+    $description = new TEntry('description');
+    $body = new TText('body');
 
     $this->form->addFields([new TLabel("Title")], [$title]);
     $this->form->addFields([new TLabel("Description")], [$description]);
