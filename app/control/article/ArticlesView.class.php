@@ -22,7 +22,7 @@ class ArticlesView extends TPage
 
     foreach ($articles as $article) {
       $link = new TElement('a');
-      $link->href = 'index.php?class=ArticleView&method=onLoad&id=' . $article->id;
+      $link->href = 'index.php?class=ArticleView&id=' . $article->id;
       $list->add($link);
 
       $card = new TVBox;
