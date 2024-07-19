@@ -11,7 +11,6 @@ class Article extends TRecord
   public function __construct($id = NULL)
   {
     parent::__construct($id);
-
     parent::addAttribute('slug');
     parent::addAttribute('title');
     parent::addAttribute('description');
@@ -19,7 +18,7 @@ class Article extends TRecord
     parent::addAttribute('tagList');
     parent::addAttribute('createdAt');
     parent::addAttribute('updatedAt');
-    parent::addAttribute('favorited');
+    // parent::addAttribute('favorited');
     parent::addAttribute('favoritesCount');
   }
 }
