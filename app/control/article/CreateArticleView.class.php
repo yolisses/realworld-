@@ -2,8 +2,11 @@
 
 use Adianti\Control\TAction;
 use Adianti\Control\TPage;
+use Adianti\Core\AdiantiCoreApplication;
+use Adianti\Database\TTransaction;
 use Adianti\Widget\Form\TEntry;
 use Adianti\Widget\Form\TLabel;
+use Adianti\Widget\Form\TText;
 use Adianti\Wrapper\BootstrapFormBuilder;
 
 class CreateArticleView extends TPage
@@ -15,7 +18,7 @@ class CreateArticleView extends TPage
     $this->form->setFormTitle("New post");
 
     $title = new TEntry('title');
-    $description = new TEntry('description');
+    $description = new TText('description');
     $body = new TEntry('body');
 
     $this->form->addFields([new TLabel("Title")], [$title]);
@@ -30,6 +33,16 @@ class CreateArticleView extends TPage
   function onSend()
   {
     $data = $this->form->getData();
-    echo json_encode($data);
+
+    TTransaction::open('sample');
+
+    $article = new Article;
+    $article->title = $data->title;
+    $article->description = $data->description;
+    $article->body = $data->body;
+    $article->slug = Article::slugify($data->title);
+    $article->store();
+
+    TTransaction::close();
   }
 }
