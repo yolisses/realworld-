@@ -2,14 +2,7 @@
   "name": "bootstrap-material-datetimepicker",
   "description": ".",
   "version": "2.7.1",
-  "keywords": [
-    "css",
-    "js",
-    "mobile-first",
-    "responsive",
-    "front-end",
-    "web"
-  ],
+  "keywords": ["css", "js", "mobile-first", "responsive", "front-end", "web"],
   "homepage": "https://github.com/t00rk/bootstrap-material-datetimepicker",
   "main": [
     "js/bootstrap-material-datetimepicker.js",
