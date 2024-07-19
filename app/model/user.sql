@@ -1,7 +1,9 @@
 CREATE TABLE user (
   id INT PRIMARY KEY AUTO_INCREMENT,
-  email VARCHAR(255) NOT NULL UNIQUE,
-  token VARCHAR(255) NOT NULL,
-  username VARCHAR(255) NOT NULL,
   bio TEXT,
+  username VARCHAR(255) NOT NULL,
+  passwordHash VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE
 );
+
+-- $2y$10$IpmqmxD3GZ5d9s18c0TacezmxXy7u3haClknUzshH3XUxrTQwxZ8S

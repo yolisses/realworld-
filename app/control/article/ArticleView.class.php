@@ -2,11 +2,8 @@
 
 use Adianti\Control\TAction;
 use Adianti\Control\TPage;
-use Adianti\Core\AdiantiApplicationLoader;
 use Adianti\Core\AdiantiCoreApplication;
-use Adianti\Core\AdiantiCoreLoader;
 use Adianti\Database\TTransaction;
-use Adianti\Widget\Base\TScript;
 use Adianti\Widget\Container\THBox;
 use Adianti\Widget\Container\TVBox;
 use Adianti\Widget\Form\TButton;

@@ -10,9 +10,9 @@ class User extends TRecord
   public function __construct($id = NULL)
   {
     parent::__construct($id);
-    parent::addAttribute('email');
-    parent::addAttribute('token');
-    parent::addAttribute('username');
     parent::addAttribute('bio');
+    parent::addAttribute('email');
+    parent::addAttribute('username');
+    parent::addAttribute('passwordHash');
   }
 }
