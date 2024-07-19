@@ -15,7 +15,7 @@ class Article extends TRecord
     parent::addAttribute('title');
     parent::addAttribute('description');
     parent::addAttribute('body');
-    parent::addAttribute('tagList');
+    // parent::addAttribute('tagList');
     parent::addAttribute('createdAt');
     parent::addAttribute('updatedAt');
     // parent::addAttribute('favorited');
