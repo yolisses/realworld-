@@ -23,12 +23,14 @@ class ArticleView extends TPage
     $article = new Article($params['id']);
 
     $title = new TLabel($article->title);
+    $title->setTagName("h1");
     $container->add($title);
 
     $paragraphs = explode("\n", $article->body);
 
     foreach ($paragraphs as $paragraphText) {
       $paragraph = new TLabel($paragraphText);
+      $paragraph->setTagName("p");
       $container->add($paragraph);
     }
 
