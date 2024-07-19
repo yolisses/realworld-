@@ -6,7 +6,7 @@ use Adianti\Widget\Base\TElement;
 use Adianti\Widget\Container\TVBox;
 use Adianti\Widget\Form\TLabel;
 
-class HomeView extends TPage
+class ArticlesView extends TPage
 {
   public function __construct()
   {
