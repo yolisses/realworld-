@@ -22,6 +22,7 @@ class ArticlesView extends TPage
 
     foreach ($articles as $article) {
       $link = new TElement('a');
+      $link->generator = 'adianti';
       $link->href = 'index.php?class=ArticleView&id=' . $article->id;
       $list->add($link);
 
