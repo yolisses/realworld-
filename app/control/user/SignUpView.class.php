@@ -5,9 +5,7 @@ use Adianti\Control\TPage;
 use Adianti\Widget\Form\TEntry;
 use Adianti\Widget\Form\TLabel;
 use Adianti\Widget\Form\TPassword;
-use Adianti\Widget\Wrapper\TQuickForm;
 use Adianti\Wrapper\BootstrapFormBuilder;
-use Adianti\Wrapper\BootstrapFormWrapper;
 
 class SignUpView extends TPage
 {

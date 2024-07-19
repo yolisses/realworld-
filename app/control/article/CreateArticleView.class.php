@@ -1,33 +1,35 @@
 <?php
 
+use Adianti\Control\TAction;
 use Adianti\Control\TPage;
-use Adianti\Database\TTransaction;
-use Adianti\Widget\Dialog\TMessage;
+use Adianti\Widget\Form\TEntry;
+use Adianti\Widget\Form\TLabel;
+use Adianti\Wrapper\BootstrapFormBuilder;
 
 class CreateArticleView extends TPage
 {
   public function __construct()
   {
     parent::__construct();
-    try {
-      TTransaction::open('sample');
+    $this->form = new BootstrapFormBuilder;
+    $this->form->setFormTitle("New post");
 
-      $article = new Article;
-      $article->slug = 'how-to-train-your-dragon';
-      $article->title = 'How to train your dragon';
-      $article->description = 'Ever wonder how?';
-      $article->body = 'It takes a Jacobian';
-      // $article->tagList = ['dragons', 'training'];
-      // $article->createdAt = date('Y-m-d H:i:s');
-      // $article->updatedAt = date('Y-m-d H:i:s');
-      // $article->favorited = false;
-      $article->favoritesCount = 0;
-      $article->store();
+    $title = new TEntry('title');
+    $description = new TEntry('description');
+    $body = new TEntry('body');
 
-      new TMessage('info', 'Object stored successfully');
-      TTransaction::close();
-    } catch (Exception $e) {
-      new TMessage('error', $e->getMessage());
-    }
+    $this->form->addFields([new TLabel("Title")], [$title]);
+    $this->form->addFields([new TLabel("Description")], [$description]);
+    $this->form->addFields([new TLabel('Body')], [$body]);
+
+    $this->form->addAction("Publish article", new TAction(array($this, 'onSend')), '');
+
+    $this->add($this->form);
+  }
+
+  function onSend()
+  {
+    $data = $this->form->getData();
+    echo json_encode($data);
   }
 }
