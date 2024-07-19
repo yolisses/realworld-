@@ -5,7 +5,7 @@ use Adianti\Database\TTransaction;
 use Adianti\Widget\Container\TVBox;
 use Adianti\Widget\Form\TLabel;
 
-class ArticlePage extends TPage
+class ArticleView extends TPage
 {
   public function __construct()
   {
@@ -14,10 +14,8 @@ class ArticlePage extends TPage
 
   public function onLoad($params)
   {
-
     $container = new TVBox;
     $this->add($container);
-
 
     TTransaction::open('sample');
 

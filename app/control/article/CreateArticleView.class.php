@@ -4,7 +4,7 @@ use Adianti\Control\TPage;
 use Adianti\Database\TTransaction;
 use Adianti\Widget\Dialog\TMessage;
 
-class ArticlePage extends TPage
+class CreateArticleView extends TPage
 {
   public function __construct()
   {
