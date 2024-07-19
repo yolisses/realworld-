@@ -1,7 +1,7 @@
 <menu>
     <menuitem label='New Post'>
         <icon>fa:edit fa-fw</icon>
-        <action>CreateArticleView</action>
+        <action>EditArticleView</action>
     </menuitem>
     <menuitem label='Home'>
         <icon>fa:home fa-fw</icon>

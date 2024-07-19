@@ -40,21 +40,25 @@ class ArticleView extends TPage
     $optionsContainer->add($deleteForm);
 
     $deleteButton = new TButton("delete");
-    $deleteButton->setAction(new TAction([$this, 'onDelete'], ['id' => $params['id']]));
     $deleteForm->add($deleteButton);
+    $deleteForm->addField($deleteButton);
+    $deleteButton->setAction(new TAction([$this, 'onDelete'], ['id' => $params['id']]));
     $deleteButton->setImage('fa:trash red');
     $deleteButton->class = 'btn';
     $deleteButton->type = 'submit';
     $deleteButton->setLabel("Delete Article");
 
-    $deleteForm->addField($deleteButton);
+    $editForm = new TForm('edit_form');
+    $optionsContainer->add($editForm);
 
     $editButton = new TButton("edit");
-    $editButton->setLabel("Edit Article");
+    $editForm->add($editButton);
+    $editForm->addField($editButton);
+    $editButton->setAction(new TAction([$this, 'onEdit'], ['id' => $params['id']]));
     $editButton->setImage('fa:edit blue');
     $editButton->class = 'btn';
-    $optionsContainer->add($editButton);
-
+    $editButton->type = 'submit';
+    $editButton->setLabel("Edit Article");
 
     $paragraphs = explode("\n", $article->body);
 
@@ -76,5 +80,10 @@ class ArticleView extends TPage
     TTransaction::close();
 
     AdiantiCoreApplication::loadPageURL('index.php?class=HomeView');
+  }
+
+  function onEdit($params)
+  {
+    AdiantiCoreApplication::loadPageURL('index.php?class=EditArticleView&method=onLoad&id=' . $params['id']);
   }
 }

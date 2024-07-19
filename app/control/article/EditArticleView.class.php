@@ -9,7 +9,7 @@ use Adianti\Widget\Form\TLabel;
 use Adianti\Widget\Form\TText;
 use Adianti\Wrapper\BootstrapFormBuilder;
 
-class CreateArticleView extends TPage
+class EditArticleView extends TPage
 {
 
   protected $form;
