@@ -3,6 +3,10 @@
         <icon>fa:edit fa-fw</icon>
         <action>EditArticleView</action>
     </menuitem>
+    <menuitem label='Dev Page'>
+        <icon>fa:code fa-fw</icon>
+        <action>DevPage</action>
+    </menuitem>
     <menuitem label='Home'>
         <icon>fa:home fa-fw</icon>
         <menu>

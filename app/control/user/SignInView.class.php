@@ -28,6 +28,10 @@ class SignInView extends TPage
     parent::add($this->form);
   }
 
+  function dumb()
+  {
+  }
+
   public function onLogin()
   {
     try {

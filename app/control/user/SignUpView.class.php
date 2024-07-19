@@ -34,4 +34,8 @@ class SignUpView extends TPage
   {
     echo "here";
   }
+
+  function dumb()
+  {
+  }
 }
