@@ -1,6 +1,5 @@
 CREATE TABLE article (
   id INT PRIMARY KEY AUTO_INCREMENT,
-  slug VARCHAR(255) NOT NULL,
   title VARCHAR(255) NOT NULL,
   description TEXT NOT NULL,
   body TEXT NOT NULL,

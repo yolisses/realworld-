@@ -11,10 +11,19 @@ use Adianti\Wrapper\BootstrapFormBuilder;
 
 class CreateArticleView extends TPage
 {
+
+  protected $form;
+
+  use Adianti\Base\AdiantiStandardFormTrait;
+
   public function __construct()
   {
     parent::__construct();
-    $this->form = new BootstrapFormBuilder;
+
+    $this->setDatabase('sample');
+    $this->setActiveRecord('Article');
+
+    $this->form = new BootstrapFormBuilder('form_Article');
     $this->form->setFormTitle("New post");
 
     $title = new TEntry('title');
@@ -25,24 +34,8 @@ class CreateArticleView extends TPage
     $this->form->addFields([new TLabel("Description")], [$description]);
     $this->form->addFields([new TLabel('Body')], [$body]);
 
-    $this->form->addAction("Publish article", new TAction(array($this, 'onSend')), '');
+    $this->form->addAction("Publish article", new TAction(array($this, 'onSave')), '');
 
     $this->add($this->form);
-  }
-
-  function onSend()
-  {
-    $data = $this->form->getData();
-
-    TTransaction::open('sample');
-
-    $article = new Article;
-    $article->title = $data->title;
-    $article->description = $data->description;
-    $article->body = $data->body;
-    $article->slug = Article::slugify($data->title);
-    $article->store();
-
-    TTransaction::close();
   }
 }

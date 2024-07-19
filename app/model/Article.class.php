@@ -10,7 +10,7 @@ class Article extends TRecord
   public function __construct($id = NULL)
   {
     parent::__construct($id);
-    parent::addAttribute('slug');
+    // parent::addAttribute('slug');
     parent::addAttribute('title');
     parent::addAttribute('description');
     parent::addAttribute('body');
