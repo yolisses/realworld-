@@ -75,7 +75,6 @@ class ArticleView extends TPage
     $article->delete($params['id']);
     TTransaction::close();
 
-
     AdiantiCoreApplication::loadPageURL('index.php?class=HomeView');
   }
 }
