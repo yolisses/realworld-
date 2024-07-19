@@ -2,8 +2,9 @@
 
 use Adianti\Control\TPage;
 use Adianti\Database\TTransaction;
-use Adianti\Widget\Base\TElement;
+use Adianti\Widget\Container\THBox;
 use Adianti\Widget\Container\TVBox;
+use Adianti\Widget\Form\TButton;
 use Adianti\Widget\Form\TLabel;
 
 class ArticleView extends TPage
@@ -19,8 +20,16 @@ class ArticleView extends TPage
     $this->add($container);
 
     TTransaction::open('sample');
-
     $article = new Article($params['id']);
+    TTransaction::close();
+
+    $optionsContainer = new THBox;
+    $container->add($optionsContainer);
+
+    $deleteButton = new TButton("delete");
+    $deleteButton->setLabel("Delete Article");
+    $deleteButton->setImage('fa:trash red');
+    $optionsContainer->add($deleteButton);
 
     $title = new TLabel($article->title);
     $title->setTagName("h1");
@@ -33,8 +42,5 @@ class ArticleView extends TPage
       $paragraph->setTagName("p");
       $container->add($paragraph);
     }
-
-
-    TTransaction::close();
   }
 }
