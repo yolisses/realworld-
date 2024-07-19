@@ -39,11 +39,8 @@ class SignInView extends TPage
 
       $data = $this->form->getData();
 
-      // $email = $data->email;
-      // $password = $data->password;
-
-      $email = 'yo@email.com';
-      $password = 'yo';
+      $email = $data->email;
+      $password = $data->password;
 
       $users = User::where('email', '=', $email)->load();
 

@@ -12,6 +12,8 @@ class DevPage extends TPage
 
     $this->add(new TLabel('massa'));
 
+
+
     AdiantiCoreApplication::loadPageURL('index.php?class=UserButtons');
   }
 }
